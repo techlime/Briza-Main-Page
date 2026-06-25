@@ -203,11 +203,14 @@ function Droplets() {
 function Rig({ children }: { children: React.ReactNode }) {
   const { camera } = useThree();
   const target = useRef(new THREE.Vector3(0, 1.2, 6));
+  
   useFrame((state) => {
-    target.set(state.pointer.x * 1.2, 1.2 + state.pointer.y * 0.6, 6);
-    camera.position.lerp(target, 0.05);
+    // FIXED: Access target.current to set the ThreeJS Vector3 data and pass it safely into camera.position.lerp()
+    target.current.set(state.pointer.x * 1.2, 1.2 + state.pointer.y * 0.6, 6);
+    camera.position.lerp(target.current, 0.05);
     camera.lookAt(0, 0, 0);
   });
+  
   return <>{children}</>;
 }
 
@@ -222,7 +225,7 @@ export function HeroBottle({ pointer = { x: 0, y: 0 }, className = "" }: HeroBot
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 1, 6], fov: 38 }}
+        camera={{ position:, fov: 38 }}
         gl={{ antialias: true, alpha: true }}
       >
         <Suspense fallback={null}>
