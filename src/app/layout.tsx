@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = "https://briza247.com";
 
-export const metadata: Metadata = {
+export const meta Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "BRIZA 24/7 — Pure Hydration. Anytime. Everytime. | Packaged Drinking Water, Goa",
@@ -102,11 +102,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#021C24",
+  themeColor: "#F0F9FA",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 const structuredData = {
@@ -163,7 +163,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="">
       <head>
         <script
           type="application/ld+json"
