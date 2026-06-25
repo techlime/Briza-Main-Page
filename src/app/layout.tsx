@@ -27,7 +27,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = "https://briza247.com";
 
-export const meta Metadata = {
+// FIXED: Changed 'meta Metadata' to 'metadata: Metadata' to resolve the syntax error
+export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "BRIZA 24/7 — Pure Hydration. Anytime. Everytime. | Packaged Drinking Water, Goa",
