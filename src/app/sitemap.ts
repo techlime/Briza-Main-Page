@@ -1,25 +1,19 @@
 import type { MetadataRoute } from "next";
 
+// Force Next.js to generate this route as a static file for GitHub Pages
+export const dynamic = "force-static";
+
 const SITE_URL = "https://briza247.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const sections = [
-    "",
-    "#about",
-    "#products",
-    "#services",
-    "#process",
-    "#delivery",
-    "#industries",
-    "#bulk",
-    "#testimonials",
-    "#contact",
-  ];
   const now = new Date();
-  return sections.map((section) => ({
-    url: `${SITE_URL}/${section}`,
-    lastModified: now,
-    changeFrequency: section === "" ? ("weekly" as const) : ("monthly" as const),
-    priority: section === "" ? 1 : 0.7,
-  }));
+  
+  return [
+    {
+      url: `${SITE_URL}/`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 1,
+    }
+  ];
 }
