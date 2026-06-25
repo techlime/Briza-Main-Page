@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// Force Next.js to generate this route as a static file during 'next build'
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "BRIZA 24/7 — Pure Hydration. Anytime. Everytime.",
